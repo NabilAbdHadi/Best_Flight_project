@@ -1,5 +1,6 @@
 import gmplot
 from geopy import *
+from geopy.distance import geodesic
 import requests
 import json
 import googlemaps
@@ -25,6 +26,12 @@ def plotMap(input):
         gmap.draw("map%s.html" % key)
 
 
+def distanceCalc(valueO, valueD):
+    origin = valueO
+    dest = valueD
+    dist = geodesic(origin,dest)
+    return dist.km
+
 def distance(input):
     disMat = {}
     """gmaps = googlemaps.Client(key='AIzaSyBYAQcMFPMWlwctq82tQkqoB_-X_TdbprA')  # something wrong
@@ -33,13 +40,10 @@ def distance(input):
             my_dist = gmaps.distance_matrix(Origin, Destination)['rows'][0]['elements'][0]
             print(i, j)
             print(my_dist)"""
-    print(disMat)
     for keyO, valueO in input.items():
         disMat[keyO] = []
         for keyD, valueD in input.items():
-            x = valueD[0] - valueO[0]
-            y = valueD[1] - valueO[1]
-            my_dist = math.sqrt(math.pow(x, 2) + math.pow(y, 2))
+            my_dist = distanceCalc(valueO,valueD)
             disMat[keyO].append(my_dist)
             print(my_dist)
 
