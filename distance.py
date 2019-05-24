@@ -25,13 +25,15 @@ def plotMap(input):
         gmap = gmplot.GoogleMapPlotter(value[0], value[1], 18)
         gmap.draw("map%s.html" % key)
 
-
+# the calculation of distance function
+# from latitude and longitude to km
 def distanceCalc(valueO, valueD):
     origin = valueO
     dest = valueD
     dist = geodesic(origin,dest)
     return dist.km
 
+# the function to find the distance between two city
 def distance(input):
     disMat = {}
     """gmaps = googlemaps.Client(key='AIzaSyBYAQcMFPMWlwctq82tQkqoB_-X_TdbprA')  # something wrong
