@@ -43,11 +43,11 @@ def distance(input):
             print(i, j)
             print(my_dist)"""
     for keyO, valueO in input.items():
-        disMat[keyO] = []
+        disMat[keyO] = {}
         for keyD, valueD in input.items():
             my_dist = distanceCalc(valueO,valueD)
-            disMat[keyO].append(my_dist)
-            print(my_dist)
+            disMat[keyO][keyD] = my_dist
+            #print(my_dist)
 
     return disMat
 
