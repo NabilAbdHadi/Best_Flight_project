@@ -56,8 +56,8 @@ def distance(input):
 major_city = ["Kuala Lumpur", "New York City", "Istanbul", "Beijing", "Manila", "Berlin"]
 
 coor = coordinate(major_city)
-print(coor)
+#print(coor)
 Dis = distance(coor)
-print(Dis)
+#print(Dis)
 # plotMap(coor)
 # distanceCalc(coor)
